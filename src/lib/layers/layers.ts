@@ -2,9 +2,9 @@ import { D } from "../decimal";
 
 const FINF_LOG10 = Math.log10(Number.MAX_VALUE);
 
-const LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZαβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩАА̀А̂А̄ӒБВГҐДЂЃЕЀЕ̄Е̂ЁЄЖЗЗ́ЅИІЇꙆЍИ̂ӢЙЈКЛЉМНЊОО̀О̂ŌӦПРСС́ТЋЌУУ̀У̂ӮЎӰФХЦЧЏШЩꙎЪЪ̀ЫЬѢЭЮЮ̀ЯЯ̀ӐА̊А̃Ӓ̄ӔӘӘ́Ә̃ӚВ̌ԜГ̑Г̇Г̣Г̌Г̂Г̆Г̈г̊ҔҒӺҒ̌ғ̊ӶД́Д̌Д̈Д̣Д̆ӖЕ̃Ё̄Є̈ԐԐ̈ҖӜӁЖ̣ҘӞЗ̌З̣З̆ӠИ̃ӤҊҚӃҠҞҜК̣к̊қ̊ԚᴫЛ́ӅԮԒЛ̈ӍᵸН́ӉҢԨӇҤО̆О̃Ӧ̄ӨӨ̄Ө́Ө̆ӪԤП̈Р̌ҎР̌С̌ҪС̣С̱Т́Т̈Т̌Т̇Т̣Ҭ";
-const HIGHER_LETTERS = "ψϝϛͱϻϙͳϸðþȝƿəŋſÐÞȜǷƏŊꙂꙀѪѬѦѨ";
-const HIGHER_LETTERS_2 = "☿♀♁♂♃♄♅♆♇";
+const LETTERS = "αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ";
+const HIGHER_LETTERS = "ψϝϛͱϻϙͳϸðþabcdefghijklmnopqrstuvwxyzȝƿəŋſÐÞȜǷƏŊ";
+const HIGHER_LETTERS_2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ☿♀♁♂♃♄♅♆♇";
 
 /** Point at which it's useless to show the current amount */
 export const MIN_BIG_LAYER = 1e9;
@@ -49,8 +49,8 @@ function tower(sequence: string, idx: number): string {
 }
 
 export function getLayerNameHTML(layer: D): string {
-    if(!layer.isFinite()/* || layer.gt("1f1e307.9"*/)) {
-        return "<|∞|>:◯";
+    if(!layer.isFinite() || layer.gt("1f1e307.9")) {
+        return "<|<|β|>:Ω<sup>Ω<sup>Ω</sup></sup>|>:WOW!!!";
     }
 
     layer = layer.round();
